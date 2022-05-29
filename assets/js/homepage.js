@@ -43,7 +43,9 @@ var getUserRepos = function(user) {
       alert("Unable to connect to GitHub");
     });
 };
-
+var getFeaturedRepos = function(language) {
+  var apiURL = "https://api.github.com/search/repositories?q=" + "=is:featured&sort=help-wanted-issues"
+}
 var displayRepos = function(repos, searchTerm) {
   // check if api returned any repos
   if (repos.length === 0) {
@@ -78,6 +80,9 @@ var displayRepos = function(repos, searchTerm) {
     if (repos[i].open_issues_count > 0) {
       statusEl.innerHTML =
         "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
+
+        fetch(apiURL);
+        
     } else {
       statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
     }
